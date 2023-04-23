@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import fetchImages from '../Services/fetchImages';
+// import { fetchImages } from '../Services/fetchImages';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import { Button } from './Button/Button';
@@ -22,10 +23,18 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
+    // console.log(prevState.page);
+    // console.log(this.state.page);
     const { searchQuery, page } = this.state;
     if (prevState.searchQuery !== searchQuery || prevState.page !== page) {
       this.getImages(searchQuery, page);
     }
+    // if (this.state.page > 1) {
+    //   window.scrollTo({
+    //     top: document.documentElement.scrollHeight,
+    //     behavior: 'smooth',
+    //   });
+    // }
   }
 
   formSubmit = searchQuery => {
@@ -113,3 +122,19 @@ export class App extends Component {
     );
   }
 }
+
+//   return (
+//     <div
+//       style={{
+//         height: '100vh',
+//         display: 'flex',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         fontSize: 40,
+//         color: '#010101',
+//       }}
+//     >
+//       React homework template
+//     </div>
+//   );
+// };
