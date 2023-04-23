@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
-import fetchImages from '../Services/fetchImages';
+import fetchImages from './API/fetchImages';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import { Button } from './Button/Button';
@@ -90,22 +90,17 @@ export class App extends Component {
   };
 
   render() {
-    // паттерн деструктуризации пропсов state
     const { images, isLoading, loadMore, page, showModal, largeImageURL } =
       this.state;
 
     return (
       <div>
         <Searchbar onSubmit={this.formSubmit} />
-        {/* {isLoading ? (
-          <Loader />
-        ) : (
-          <ImageGallery images={images} openModal={this.openModal} />
-        )} */}
+        {}
         <Loader isLoading={isLoading} />
         <ImageGallery images={images} openModal={this.openModal} />
         {loadMore && <Button onloadMore={this.onloadMore} page={page} />}
-        {/* портал для модалки в index.html */}
+        {}
         {showModal && (
           <Modal largeImageURL={largeImageURL} onClose={this.closeModal} />
         )}

@@ -12,8 +12,6 @@ export class Searchbar extends Component {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
     this.setState({ searchQuery: event.currentTarget.value.toLowerCase() });
-
-    // this.setState({ value });
   };
 
   handleSubmit = event => {
@@ -53,4 +51,3 @@ export class Searchbar extends Component {
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
-// export default Searchbar;
